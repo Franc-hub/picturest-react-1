@@ -3,9 +3,10 @@ name: CI/CD
 on: [push, pull_request]
 
 jobs:
-  build:
+  BuildAndRunTests:
 
-    runs-on: ubuntu-latest
+  if: github.event_name == 'push' && github.ref != 'refs/heads/main'
+  runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -31,3 +32,5 @@ jobs:
         NODE_ENV: test
         CI: false
       run: yarn build
+
+      PublishToNetlify:
