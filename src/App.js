@@ -33,6 +33,7 @@ function App() {
           </Route>
           <Route exact path="/">
             <HomePage user={user} />
+            <span>Guitarritas</span>
           </Route>
           <Route exact path="/login">
             <LoginPage />
